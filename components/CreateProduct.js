@@ -93,7 +93,7 @@ export default function CreateProduct() {
           />
         </label>
         <label htmlFor="description">
-          Price
+          Description
           <textarea
             onChange={handleChange}
             id="description"
