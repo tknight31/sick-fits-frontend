@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { gql, useQuery } from '@apollo/client';
 import Head from 'next/head';
 import styled from 'styled-components';
@@ -34,10 +36,13 @@ export default function SingleProduct({ id }) {
       <Head>
         <title>Sick Fits | {Product.name}</title>
       </Head>
-      <img
-        src={Product.photo.image.publicUrlTransformed}
-        alt={Product.photo.altText}
-      />
+      {Product.photo?.image.publicUrlTransformed ? (
+        <img
+          src={Product.photo.image.publicUrlTransformed}
+          alt={Product.photo.altText}
+        />
+      ) : null}
+
       <div className="details">
         <h2>{Product.name}</h2>
         <p>{Product.description}</p>
